@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - ESSENTIALS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">ESSENTIALS</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="back-link">
+            <a href="index.html">← BACK</a>
+        </div>
+
+        <div class="products-header">
+            <h1>ESSENTIALS</h1>
+            <p class="product-count">10 products</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-id="be1" data-name="KNIT CAPE WITH CONTRAST THREAD SCARF" data-price="24.90" data-image="images/beauty-1.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-1.jpg" alt="KNIT CAPE WITH CONTRAST THREAD SCARF">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>KNIT CAPE WITH CONTRAST THREAD SCARF</h3>
+                    <p class="price">$24.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be2" data-name="LEATHER BELT WITH DOUBLE BUCKLE" data-price="39.90" data-image="images/beauty-2.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-2.jpg" alt="LEATHER BELT WITH DOUBLE BUCKLE">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>LEATHER BELT WITH DOUBLE BUCKLE</h3>
+                    <p class="price">$39.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be3" data-name="FAUX FUR AVIATOR HAT" data-price="19.90" data-image="images/beauty-3.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-3.jpg" alt="FAUX FUR AVIATOR HAT">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>FAUX FUR AVIATOR HAT</h3>
+                    <p class="price">$19.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be4" data-name="TALL RIBBED SOCKS" data-price="44.90" data-image="images/beauty-4.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-4.jpg" alt="TALL RIBBED SOCKS">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>TALL RIBBED SOCKS</h3>
+                    <p class="price">$44.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be5" data-name="BASIC KNIT BEANIE" data-price="34.90" data-image="images/beauty-5.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-5.jpg" alt="BASIC KNIT BEANIE">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>BASIC KNIT BEANIE</h3>
+                    <p class="price">$34.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be6" data-name="TOPSTITCHED LEATHER BELT" data-price="29.90" data-image="images/beauty-6.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-6.jpg" alt="TOPSTITCHED LEATHER BELT">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>TOPSTITCHED LEATHER BELT</h3>
+                    <p class="price">$29.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be7" data-name="100% SILK STRIPED TIE" data-price="27.90" data-image="images/beauty-7.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-7.jpg" alt="100% SILK STRIPED TIE">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>100% SILK STRIPED TIE</h3>
+                    <p class="price">$27.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be8" data-name="CONTRAST EMBROIDERY CAP" data-price="49.90" data-image="images/beauty-8.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-8.jpg" alt="CONTRAST EMBROIDERY CAP">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>CONTRAST EMBROIDERY CAP</h3>
+                    <p class="price">$49.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be9" data-name="BANDANA" data-price="22.90" data-image="images/beauty-9.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-9.jpg" alt="BANDANA">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>BANDANA</h3>
+                    <p class="price">$22.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="be10" data-name="LEATHER KEYCHAIN" data-price="32.90" data-image="images/beauty-10.jpg">
+                <div class="product-image">
+                    <img src="images/beauty-10.jpg" alt="LEATHER KEYCHAIN">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>LEATHER KEYCHAIN</h3>
+                    <p class="price">$32.90</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

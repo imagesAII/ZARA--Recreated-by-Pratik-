@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ZARA – Privacy Preference Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      color: #000;
+      background: #fff;
+    }
+
+    .cookies-page {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ccc;
+    }
+
+    /* Header */
+    .cookies-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .cookies-logo {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      margin-right: 32px;
+    }
+
+    .cookies-header-title {
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    /* Main area: sidebar + content */
+    .cookies-main {
+      flex: 1;
+      display: flex;
+      border-bottom: 1px solid #e0e0e0;
+      min-height: 320px;
+    }
+
+    .cookies-sidebar {
+      width: 280px;
+      border-right: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cookies-tab {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      background: #f7f7f7;
+    }
+
+    .cookies-tab.active {
+      border-left: 4px solid #000;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .cookies-content {
+      flex: 1;
+      padding: 24px 32px;
+    }
+
+    .cookies-content h2 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .cookies-content p {
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .cookies-content a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    /* Footer buttons */
+    .cookies-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #f7f7f7;
+    }
+
+    .cookies-btn {
+      border: 1px solid #000;
+      padding: 12px 24px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .cookies-btn.primary {
+      background: #000;
+      color: #fff;
+    }
+
+    .cookies-btn.secondary {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .cookies-main {
+        flex-direction: column;
+      }
+      .cookies-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .cookies-tab {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+      .cookies-btn {
+        border: 1px solid #000;
+        padding: 12px 24px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        cursor: pointer;
+        background: #fff;
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+      }
+
+      .cookies-btn.primary {
+        background: #000;
+        color: #fff;
+      }
+
+
+    }
+  </style>
+</head>
+<body>
+  <div class="cookies-page">
+    <!-- Header -->
+    <header class="cookies-header">
+      <div class="cookies-logo">ZARA</div>
+      <div class="cookies-header-title">PRIVACY PREFERENCE CENTER</div>
+    </header>
+
+    <!-- Main -->
+    <div class="cookies-main">
+      <!-- Sidebar -->
+      <aside class="cookies-sidebar">
+        <div class="cookies-tab active">YOUR PRIVACY</div>
+        <div class="cookies-tab">STRICTLY NECESSARY COOKIES</div>
+        <div class="cookies-tab">ANALYSIS COOKIES</div>
+        <div class="cookies-tab">FUNCTIONALITY OR CUSTOMISATION COOKIES</div>
+        <div class="cookies-tab">CROSS‑CONTEXTUAL BEHAVIORAL ADVERTISING COOKIES</div>
+      </aside>
+
+      <!-- Content -->
+      <section class="cookies-content">
+        <h2>Your Privacy</h2>
+        <p>
+          Cookies and other similar technologies are an essential part of how our Platform works.
+          The main goal of cookies is to make your browsing experience easier and more efficient
+          and to improve our services and the Platform itself.
+        </p>
+        <p>
+          Likewise, we use cookies to show you targeted advertising when you visit third‑party
+          websites and apps. Here, you will find all the information on the cookies we use.
+        </p>
+        <p>
+          Furthermore, you will be able to activate and/or deactivate them according to your
+          preferences, except for any cookies that are strictly necessary for the functioning
+          of the Platform.
+        </p>
+        <p>
+          For more information, please consult our
+          <a href="#">Cookie Policy</a>.
+        </p>
+      </section>
+    </div>
+
+    <!-- Footer buttons -->
+    <footer class="cookies-footer">
+      <button class="cookies-btn primary" id="cookiesConfirm">CONFIRM MY CHOICES</button>
+      <button class="cookies-btn secondary" id="cookiesReject">REJECT ALL</button>
+    </footer>
+    <script>
+  document.getElementById('cookiesConfirm').onclick = function () {
+    window.location.href = 'index.html';
+  };
+  document.getElementById('cookiesReject').onclick = function () {
+    window.location.href = 'index.html';
+  };
+</script>
+  </div>
+</body>
+</html>

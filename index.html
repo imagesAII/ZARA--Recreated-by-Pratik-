@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Fashion Forward</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Manufacturer / importer block in footer */
+.footer-manufacturer {
+  padding: 24px 48px 8px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #333;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.footer-manufacturer-title {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .footer-manufacturer {
+    padding: 20px 16px 8px;
+    font-size: 10px;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+        </nav>
+    </header>
+    
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">ESSENTIALS</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- <video class="hero-video" autoplay muted loop>
+            <source src="video/video1.mp4" type="video/mp4">
+        </video> -->
+        <video id="heroVideo" class="hero-video" autoplay muted></video>
+
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">ZARA</h1>
+            <p class="hero-subtitle">DISCOVER THE LATEST COLLECTION</p>
+
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Grid -->
+    <section class="category-grid" id="categoryGrid">
+        <a href="woman.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800" alt="Woman">
+            <div class="category-overlay">
+                <h3>WOMAN</h3>
+                <p>NEW COLLECTION</p>
+            </div>
+        </a>
+
+        <a href="man.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=800" alt="Man">
+            <div class="category-overlay">
+                <h3>MAN</h3>
+                <p>NEW COLLECTION</p>
+            </div>
+        </a>
+
+        <a href="kids.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800" alt="Kids">
+            <div class="category-overlay">
+                <h3>KIDS</h3>
+                <p>NEW COLLECTION</p>
+            </div>
+        </a>
+
+        <a href="beauty.html" class="category-card">
+            <img src="images/essentials.jpg" alt="Beauty">
+            <div class="category-overlay">
+                <h3>ESSENTIALS</h3>
+                <p>ESSENTIALS FOR MAN AND WOMAN</p>
+            </div>
+        </a>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+  <h2>DISCOVER THE LATEST COLLECTION</h2>
+  <p>Subscribe to receive updates on new arrivals and special offers.</p>
+
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" id="newsletterEmail" placeholder="ENTER YOUR EMAIL">
+    <button type="submit">SUBSCRIBE</button>
+  </form>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+            <!-- Manufacturer / Importer info -->
+<div class="footer-manufacturer">
+  <p class="footer-manufacturer-title">NAME AND INFORMATION ABOUT PROJECT:</p>
+  <p>AUTOMATION TESTING OF ZARAQA</p>
+  <p>SELENIUM CON JAVA Ÿ TESTNG</p>
+
+  <p class="footer-manufacturer-title" style="margin-top:18px;">NAME AND INFO OF THE FOUNDATION AND TRAINER:</p>
+  <p>ANUDIP FOUNDATION, THANE(W)</p>
+  <p>UNDER GUIDANCE OF SANDIP SIR (TRAINER)</p>
+  <p>BY : PRATIK SUNIL SALVE</p>
+  <p>MUMBAI, MAHARASTRA, INDIA</p>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment Information</title>
+
+<style>
+  body {
+    background: #e5e5e5;
+    font-family: "Times New Roman", serif;
+    padding: 40px 0;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: #ffffff;
+    margin: auto;
+    padding: 60px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .payment-box {
+    border: 1px solid #ccc;
+    padding: 25px;
+    margin-bottom: 35px;
+  }
+
+  .method-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .method-header img {
+    width: 70px;
+  }
+
+  p, li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<h1>Payment Methods </h1>
+
+<!-- ================= UPI ================= -->
+<div class="payment-box">
+  <div class="method-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg">
+    <h2>UPI Payment</h2>
+  </div>
+
+  <p>
+    Unified Payments Interface (UPI) allows instant bank-to-bank payments using mobile apps.
+  </p>
+
+  <p><b>Supported Apps:</b> Google Pay, PhonePe, Paytm, BHIM</p>
+
+  <p><b>Example:</b></p>
+  <ul>
+    <li>UPI ID: <b>rahul.kumar@upi</b></li>
+    <li>Amount: ₹2,499</li>
+    <li>Transaction Status: Successful</li>
+  </ul>
+</div>
+
+<!-- ================= CARD ================= -->
+<div class="payment-box">
+  <div class="method-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg">
+    <h2>Debit / Credit Card</h2>
+  </div>
+
+  <p>
+    Card payments are processed securely using encrypted payment gateways.
+  </p>
+
+  <p><b>Accepted Cards:</b> Visa, MasterCard, RuPay</p>
+
+  <p><b>Example:</b></p>
+  <ul>
+    <li>Card Type: Visa Credit Card</li>
+    <li>Card Number: **** **** **** 4578</li>
+    <li>Transaction Amount: ₹4,999</li>
+    <li>Payment Status: Approved</li>
+  </ul>
+</div>
+
+<!-- ================= COD ================= -->
+<div class="payment-box">
+  <div class="method-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Cash_icon.svg">
+    <h2>Cash on Delivery (COD)</h2>
+  </div>
+
+  <p>
+    Cash on Delivery allows customers to pay in cash at the time of product delivery.
+  </p>
+
+  <p><b>Example:</b></p>
+  <ul>
+    <li>Order Amount: ₹1,799</li>
+    <li>Payment Mode: Cash</li>
+    <li>Payment Collected By: Delivery Executive</li>
+    <li>Payment Status: Pending until delivery</li>
+  </ul>
+
+  <p>
+    COD is available only for eligible locations and orders.
+  </p>
+</div>
+
+<footer>
+  This document is for informational and demonstration purposes only.
+   <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+        </div>
+</footer>
+
+</div>
+
+</body>
+</html>

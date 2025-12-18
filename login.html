@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <div class="auth-logo">
+                <h1><a href="index.html">ZARA</a></h1>
+            </div>
+
+            <div class="auth-content">
+                <h2 class="auth-title">LOG IN</h2>
+
+                <div class="auth-form-container">
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="EMAIL" data-required="true" data-field-name="Email">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" placeholder="PASSWORD" data-required="true" data-field-name="Password">
+                        </div>
+
+                        <a href="#" class="forgot-password">FORGOT YOUR PASSWORD?</a>
+
+                        <button type="submit" class="btn-primary">LOG IN</button>
+                    </form>
+                </div>
+
+                <div class="auth-divider">
+                    <h3>OR CONTINUE WITH</h3>
+
+                    <div class="social-login">
+    <button class="social-btn google-btn">
+        <img src="https://account.zara.com/public/img/icons/za/google-color-light.svg" 
+             alt="Google Logo" width="20" height="20">
+        <span>GOOGLE</span>
+    </button>
+
+    <button class="social-btn apple-btn">
+        <img src="https://account.zara.com/public/img/icons/za/apple-color-light.svg" 
+             alt="Apple Logo" width="20" height="20">
+        <span>APPLE</span>
+    </button>
+</div>
+
+                </div>
+
+                <div class="auth-help">
+                    <a href="register.html">DON'T HAVE AN ACCOUNT? CREATE ONE</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <img src="images/login-bg.jpg" alt="Fashion">
+        </div>
+    </div>
+
+    <button class="accessibility-btn" aria-label="Accessibility Options">
+        <span style="color: white; font-size: 24px;">♿</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

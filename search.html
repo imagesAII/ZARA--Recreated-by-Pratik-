@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZARA – Search</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      color: #000;
+      background: #fff;
+    }
+
+    h1 a,
+h1 a:visited,
+h1 a:hover,
+h1 a:active {
+  color: black;
+  text-decoration: none;
+}
+
+    .page {
+      min-height: 100vh;
+      padding: 24px 48px 60px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .menu-icon {
+      width: 32px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .menu-line {
+      height: 2px;
+      background: #000;
+      margin: 6px 0;
+    }
+    .logo img {
+      height: 60px;
+      display: block;
+    }
+    .header-right {
+      display: flex;
+      gap: 24px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .header-right a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* TOP CATEGORY TABS */
+    .top-tabs {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      margin-left: 60px;
+    }
+    .top-tab {
+      cursor: pointer;
+      color: #777;
+    }
+    .top-tab.active {
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* QUESTION LINE + CARET */
+    .question-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 80px;
+    }
+    .question-line {
+      flex: 1;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .question-text {
+      margin: 0 40px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #777;
+      white-space: nowrap;
+      cursor: text;
+      position: relative;
+    }
+    .caret {
+      display: inline-block;
+      width: 1px;
+      height: 14px;
+      margin-left: 2px;
+      background: #777;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    #searchInput {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* SUGGESTIONS */
+    .suggestions-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .suggestions-list {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    .suggestion-item {
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    .suggestion-item:hover,
+    .suggestion-item.active {
+      color: #000;
+    }
+
+    /* PRODUCTS STRIP + RESULTS ROW */
+    .interest-block {
+      margin-top: 40px;
+    }
+    .interest-title {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .products-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 28px;
+      overflow-x: auto;
+    }
+    .product-card {
+      min-width: 220px;
+      flex: 0 0 auto;
+      font-size: 11px;
+    }
+    .product-image {
+      width: 100%;
+      background: #f6f6f6;
+      padding: 6px;
+      margin-bottom: 6px;
+    }
+    .product-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-info h3 {
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .price {
+      font-size: 11px;
+    }
+
+    .single-result-msg {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 16px;
+      color: #666;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .page { padding: 16px 16px 40px; }
+      .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .top-tabs { margin-left: 0; margin-bottom: 40px; }
+      .question-text { margin: 0 12px; font-size: 11px; }
+      .product-card { min-width: 180px; }
+      .product-image img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <a href="index.html" class="menu-icon">
+
+        </a>
+        <div class="logo">
+          <!-- replace src with your logo path -->
+          <h1><a href="index.html">ZARA</a></h1>
+        </div>
+      </div>
+      <nav class="header-right">
+        <a href="login.html">LOG IN</a>
+        <a href="#">HELP</a>
+        <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+
+      </nav>
+    </header>
+
+    <!-- CATEGORY TABS -->
+    <div class="top-tabs">
+      <div class="top-tab active" data-group="woman">WOMAN</div>
+      <div class="top-tab" data-group="man">MAN</div>
+      <div class="top-tab" data-group="kids">KIDS</div>
+    </div>
+
+    <!-- QUESTION LINE -->
+    <div class="question-row" id="questionRow">
+      <div class="question-line"></div>
+      <div class="question-text" id="questionText">
+        WHAT ARE YOU LOOKING FOR?<span class="caret"></span>
+      </div>
+      <div class="question-line"></div>
+    </div>
+
+    <input type="text" id="searchInput" autocomplete="off" />
+
+    <!-- SUGGESTIONS -->
+    <div class="suggestions-wrapper">
+      <div class="suggestions-list" id="suggestionsList"></div>
+    </div>
+
+    <!-- DEFAULT STRIP: YOU MAY BE INTERESTED IN -->
+    <div class="interest-block" id="interestBlock">
+      <div class="interest-title">YOU MAY BE INTERESTED IN</div>
+      <div class="products-row" id="productsRow"></div>
+    </div>
+
+    <!-- SEARCH RESULTS (HIDDEN INITIALLY) -->
+    <div id="searchResultsBlock" style="display:none; margin-top:40px;">
+      <div class="products-row" id="searchResultsRow"></div>
+    </div>
+  </div>
+
+  <script>
+    // Products from your sections (woman, man, kids, perfumes, bags and shoes)
+    // BAGS
+const BAGS = [
+  
+  { id: "b2",  name: "Crossbody Bag",                    price: "$79.90",  img: "images/bags-2.jpg" },
+  { id: "b3",  name: "Backpack",                         price: "$99.90",  img: "images/bags-3.jpg" },
+  { id: "b8",  name: "Belt Bag",                         price: "$49.90",  img: "images/bags-8.jpg" },
+ 
+];
+
+const BAGSW = [
+    { id: "b1",  name: "Leather Tote Bag",                 price: "$149.00", img: "images/bags-1.jpg" },
+    { id: "b4",  name: "Clutch",                           price: "$59.90",  img: "images/bags-4.jpg" },
+    { id: "b6",  name: "Bucket Bag",                       price: "$89.90",  img: "images/bags-6.jpg" },
+    { id: "b5",  name: "Shoulder Bag",                     price: "$119.00", img: "images/bags-5.jpg" },
+    { id: "b7",  name: "Satchel",                          price: "$139.00", img: "images/bags-7.jpg" },
+    { id: "b9",  name: "Evening Bag",                      price: "$69.90",  img: "images/bags-9.jpg" },
+    { id: "b10", name: "Messenger Bag",                    price: "$109.00", img: "images/bags-10.jpg" }
+]
+
+// BEAUTY / ACCESSORIES
+const BEAUTY = [
+  { id: "be1",  name: "KNIT CAPE WITH CONTRAST THREAD SCARF", price: "$24.90", img: "images/beauty-1.jpg" },
+  { id: "be5",  name: "BASIC KNIT BEANIE",                    price: "$34.90", img: "images/beauty-5.jpg" },
+  { id: "be6",  name: "TOPSTITCHED LEATHER BELT",             price: "$29.90", img: "images/beauty-6.jpg" },
+  { id: "be7",  name: "100% SILK STRIPED TIE",                price: "$27.90", img: "images/beauty-7.jpg" },
+  { id: "be8",  name: "CONTRAST EMBROIDERY CAP",              price: "$49.90", img: "images/beauty-8.jpg" },
+  { id: "be9",  name: "BANDANA",                              price: "$22.90", img: "images/beauty-9.jpg" },
+  { id: "be10", name: "LEATHER KEYCHAIN",                     price: "$32.90", img: "images/beauty-10.jpg" }
+];
+
+const WB = [
+  { id: "be2",  name: "LEATHER BELT WITH DOUBLE BUCKLE",      price: "$39.90", img: "images/beauty-2.jpg" },
+  { id: "be3",  name: "FAUX FUR AVIATOR HAT",                 price: "$19.90", img: "images/beauty-3.jpg" },
+  { id: "be4",  name: "TALL RIBBED SOCKS",                    price: "$44.90", img: "images/beauty-4.jpg" },
+]
+
+// PERFUMES
+const PERFUMES = [
+  { id: "p1",  name: "Rose Noir Eau De Parfum",         price: "$59.90", img: "images/perfume-1.jpg" },
+  { id: "p2",  name: "Wonder Rose",                     price: "$49.90", img: "images/perfume-2.jpg" },
+  { id: "p3",  name: "Vetiver Pamplemousse",            price: "$54.90", img: "images/perfume-3.jpg" },
+  { id: "p4",  name: "Red Vanilla",                     price: "$44.90", img: "images/perfume-4.jpg" },
+  { id: "p5",  name: "Orchid Intense",                  price: "$64.90", img: "images/perfume-5.jpg" },
+  { id: "p6",  name: "Tobacco Collection Intense Dark", price: "$69.90", img: "images/perfume-6.jpg" },
+  { id: "p7",  name: "Ebony Wood",                      price: "$54.90", img: "images/perfume-7.jpg" },
+  { id: "p8",  name: "Gardenia",                        price: "$47.90", img: "images/perfume-8.jpg" },
+  { id: "p9",  name: "Black Amber",                     price: "$59.90", img: "images/perfume-9.jpg" },
+  { id: "p10", name: "White Jasmine",                   price: "$52.90", img: "images/perfume-10.jpg" }
+];
+
+
+
+    const PRODUCTS = {
+      woman: [
+        { id:"w1",  name:"Oversized Blazer",        price:"$129.00", img:"images/woman-1.jpg" },
+        { id:"w2",  name:"Satin Midi Skirt",       price:"$59.90",  img:"images/woman-2.jpg" },
+        { id:"w3",  name:"Wool Blend Coat",        price:"$199.00", img:"images/woman-3.jpg" },
+        { id:"w4",  name:"Pleated Trousers",       price:"$49.90",  img:"images/woman-4.jpg" },
+        { id:"w5",  name:"Cashmere Sweater",       price:"$89.90",  img:"images/woman-5.jpg" },
+        { id:"b2",  name:"Crossbody Bag",          price:"$79.90",  img:"images/bags-2.jpg" },
+        { id:"p4",  name:"Red Vanilla",            price:"$44.90",  img:"images/perfume-4.jpg" }
+      ],
+      man: [
+        { id:"m1",  name:"Tailored Suit Jacket",   price:"$159.00", img:"images/man-1.jpg" },
+        { id:"m2",  name:"Slim Fit Chinos",        price:"$45.90",  img:"images/man-2.jpg" },
+        { id:"m3",  name:"Merino Wool Sweater",    price:"$79.90",  img:"images/man-3.jpg" },
+        { id:"m4",  name:"Oxford Shirt",           price:"$39.90",  img:"images/man-4.jpg" },
+        { id:"m5",  name:"Denim Jacket",           price:"$69.90",  img:"images/man-5.jpg" },
+        { id:"s1",  name:"Leather Sneakers",       price:"$89.90",  img:"images/shoes-1.jpg" },
+        { id:"p3",  name:"Vetiver Pamplemousse",   price:"$54.90",  img:"images/perfume-3.jpg" }
+      ],
+      kids: [
+        { id:"k1",  name:"Denim Overalls",         price:"$35.90",  img:"images/kids-1.jpg" },
+        { id:"k2",  name:"Graphic T-Shirt",        price:"$15.90",  img:"images/kids-2.jpg" },
+        { id:"k3",  name:"Puffer Jacket",          price:"$49.90",  img:"images/kids-3.jpg" },
+        { id:"k4",  name:"Cotton Dress",           price:"$29.90",  img:"images/kids-4.jpg" },
+        { id:"k5",  name:"Hooded Sweatshirt",      price:"$25.90",  img:"images/kids-5.jpg" },
+        { id:"k6",  name:"Sneakers",              price:"$39.90",  img:"images/kids-6.jpg" },
+        { id:"k8",  name:"Knit Cardigan",         price:"$32.90",  img:"images/kids-8.jpg" }
+      ]
+    };
+
+    // AFTER you define your PRODUCTS object, merge into both woman and man:
+PRODUCTS.woman = PRODUCTS.woman
+  .concat(BAGS)
+  .concat(BEAUTY)
+  .concat(WB)
+  .concat(BAGSW)
+  .concat(PERFUMES);
+  
+
+PRODUCTS.man = PRODUCTS.man
+  .concat(BAGS)
+  .concat(BEAUTY)
+  .concat(PERFUMES);
+
+    const questionText      = document.getElementById("questionText");
+    const searchInput       = document.getElementById("searchInput");
+    const suggestionsEl     = document.getElementById("suggestionsList");
+    const productsRow       = document.getElementById("productsRow");
+    const interestBlock     = document.getElementById("interestBlock");
+    const searchResultsBlock= document.getElementById("searchResultsBlock");
+    const searchResultsRow  = document.getElementById("searchResultsRow");
+    const tabs              = document.querySelectorAll(".top-tab");
+
+    let activeGroup = "woman";
+    let activeIndex = -1;
+
+    function setQuestionText(text) {
+      const base = text && text.trim()
+        ? text.toUpperCase()
+        : "WHAT ARE YOU LOOKING FOR?";
+      questionText.innerHTML = base + '<span class="caret"></span>';
+    }
+
+    function renderInitialProducts() {
+      const list = PRODUCTS[activeGroup].slice(0, 5);
+      productsRow.innerHTML = list.map(p => `
+        <div class="product-card">
+          <div class="product-image">
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="product-info">
+            <h3>${p.name}</h3>
+            <p class="price">${p.price}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function updateSuggestions() {
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) {
+        suggestionsEl.innerHTML = "";
+        activeIndex = -1;
+
+        // back to default panel
+        searchResultsBlock.style.display = "none";
+        interestBlock.style.display = "block";
+        renderInitialProducts();
+        return;
+      }
+
+      const matches = PRODUCTS[activeGroup].filter(p =>
+        p.name.toLowerCase().includes(q)
+      ).slice(0, 8);
+
+      suggestionsEl.innerHTML = matches
+        .map((p, i) => `<div class="suggestion-item" data-idx="${i}">${p.name.toUpperCase()}</div>`)
+        .join("");
+      activeIndex = -1;
+    }
+
+    function showSearchResults() {
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) return;
+
+      const matches = PRODUCTS[activeGroup].filter(p =>
+        p.name.toLowerCase().includes(q)
+      );
+
+      interestBlock.style.display = "none";
+      searchResultsBlock.style.display = "block";
+      suggestionsEl.innerHTML = "";
+
+      if (matches.length > 0) {
+        const top = matches.slice(0, 4); // row like your search result ss
+        searchResultsRow.innerHTML = top.map(p => `
+          <div class="product-card">
+            <div class="product-image">
+              <img src="${p.img}" alt="${p.name}">
+            </div>
+            <div class="product-info">
+              <h3>${p.name}</h3>
+              <p class="price">${p.price}</p>
+            </div>
+          </div>
+        `).join("");
+      } else {
+        searchResultsRow.innerHTML = `
+          <div class="single-result-msg">
+            ITEM IS NOT THERE IN PRODUCTS – WILL BE AVAILABLE SOON
+          </div>
+        `;
+      }
+    }
+
+    // focus when clicking the question line
+    document.getElementById("questionRow").addEventListener("click", () => {
+      searchInput.focus();
+    });
+
+    // typing
+    searchInput.addEventListener("input", () => {
+      setQuestionText(searchInput.value);
+      updateSuggestions();
+    });
+
+    // keyboard navigation + Enter
+    document.addEventListener("keydown", e => {
+      if (document.activeElement !== searchInput) return;
+      const items = Array.from(document.querySelectorAll(".suggestion-item"));
+
+      if ((e.key === "ArrowDown" || e.key === "ArrowUp") && items.length) {
+        e.preventDefault();
+        if (e.key === "ArrowDown") {
+          activeIndex = (activeIndex + 1) % items.length;
+        } else {
+          activeIndex = (activeIndex - 1 + items.length) % items.length;
+        }
+        items.forEach((el, i) => el.classList.toggle("active", i === activeIndex));
+        return;
+      }
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (activeIndex >= 0 && items[activeIndex]) {
+          searchInput.value = items[activeIndex].textContent;
+          setQuestionText(searchInput.value);
+        }
+        showSearchResults();
+      }
+    });
+
+    // click suggestion
+    suggestionsEl.addEventListener("click", e => {
+      const item = e.target.closest(".suggestion-item");
+      if (!item) return;
+      searchInput.value = item.textContent;
+      setQuestionText(searchInput.value);
+      showSearchResults();
+    });
+
+    // tabs WOMAN / MAN / KIDS
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        activeGroup = tab.dataset.group;
+
+        searchInput.value = "";
+        setQuestionText("");
+        suggestionsEl.innerHTML = "";
+
+        searchResultsBlock.style.display = "none";
+        interestBlock.style.display = "block";
+        renderInitialProducts();
+      });
+    });
+
+    // initial
+    window.addEventListener("load", () => {
+      setQuestionText("");
+      renderInitialProducts();
+      searchInput.focus();
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

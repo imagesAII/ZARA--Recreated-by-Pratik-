@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+      /* UPI input should always appear in lowercase */
+      #upiId {
+        text-transform: lowercase;
+      }
+      /* Custom alert overlay */
+.custom-alert-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.custom-alert-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Alert box */
+.custom-alert {
+  background: #ffffff;
+  padding: 40px 32px 32px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  border-radius: 2px;
+}
+
+/* Red X icon */
+.custom-alert-icon {
+  font-size: 40px;
+  margin-bottom: 24px;
+  color: #ff4b4b;
+}
+
+/* Title */
+.custom-alert-title {
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* Message text */
+.custom-alert-message {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: #777777;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* OK button */
+.custom-alert-btn {
+  display: inline-block;
+  min-width: 160px;
+  padding: 12px 24px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.custom-alert-btn:hover {
+  opacity: 0.85;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">BEAUTY</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="back-link">
+            <a href="cart.html">← BACK TO CART</a>
+        </div>
+
+        <div class="checkout-container">
+            <h1 class="checkout-title">CHECKOUT</h1>
+
+            <div class="checkout-content">
+                <!-- Checkout Form -->
+                <div class="checkout-form-container">
+                    <form id="checkoutForm" class="checkout-form">
+                        <div class="form-section">
+                            <h2>SHIPPING INFORMATION</h2>
+
+                            <div class="form-group">
+                                <input type="text" id="fullName" placeholder="FULL NAME" data-required="true" data-field-name="Full Name">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="EMAIL" data-required="true" data-field-name="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" id="phone" placeholder="PHONE NUMBER" data-required="true" data-field-name="Phone Number">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="address" placeholder="ADDRESS" data-required="true" data-field-name="Address">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="city" placeholder="CITY" data-required="true" data-field-name="City">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="state" placeholder="STATE" data-required="true" data-field-name="State">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="zipCode" placeholder="ZIP CODE" data-required="true" data-field-name="ZIP Code">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="country" placeholder="COUNTRY" value="INDIA" data-required="true" data-field-name="Country">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>PAYMENT METHOD</h2>
+
+                            <div class="payment-methods-minimal">
+                                <label class="payment-option-minimal">
+                                    <input type="radio" name="payment" value="card" checked>
+                                    <div class="payment-content">
+                                        <img src="https://img.icons8.com/color/48/000000/bank-card-back-side.png" alt="Card" class="payment-icon">
+                                        <span>CREDIT / DEBIT CARD</span>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option-minimal">
+                                    <input type="radio" name="payment" value="upi">
+                                    <div class="payment-content">
+                                        <img src="https://img.icons8.com/color/48/000000/bhim.png" alt="UPI" class="payment-icon">
+                                        <span>UPI</span>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option-minimal">
+                                    <input type="radio" name="payment" value="cod">
+                                    <div class="payment-content">
+                                        <img src="https://img.icons8.com/color/48/000000/cash-in-hand.png" alt="COD" class="payment-icon">
+                                        <span>CASH ON DELIVERY</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div id="cardDetails" class="card-details-minimal">
+                                <div class="form-group">
+                                    <input type="text" id="cardNumber" placeholder="CARD NUMBER">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-place-order">PLACE ORDER</button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <div class="checkout-summary-card">
+                        <h2>ORDER SUMMARY</h2>
+
+                    <div id="checkoutItems" class="checkout-items"></div>
+
+                    <div class="checkout-totals">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkoutSubtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="checkoutShipping">FREE</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="checkoutTax">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="checkoutTotal">$0.00</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+// ===================== CUSTOM ALERT =====================
+
+function showCustomAlert(title, message, callback) {
+  const existing = document.querySelector('.custom-alert-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'custom-alert-overlay';
+
+  overlay.innerHTML = `
+    <div class="custom-alert">
+      <div class="custom-alert-icon">✕</div>
+      <div class="custom-alert-title">${title}</div>
+      <div class="custom-alert-message">${message}</div>
+      <button class="custom-alert-btn">OK</button>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  requestAnimationFrame(() => overlay.classList.add('active'));
+
+  const okBtn = overlay.querySelector('.custom-alert-btn');
+  okBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    setTimeout(() => overlay.remove(), 200);
+    if (typeof callback === 'function') callback();
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.remove(), 200);
+    }
+  });
+}
+
+// keep same name you used before
+function showError(message) {
+  showCustomAlert('NOTICE', message);
+}
+
+// ===================== CHECKOUT VALIDATION & PAYMENT LOGIC =====================
+
+const INDIAN_STATES = [
+  "ANDHRA PRADESH","ARUNACHAL PRADESH","ASSAM","BIHAR","CHHATTISGARH","GOA",
+  "GUJARAT","HARYANA","HIMACHAL PRADESH","JHARKHAND","KARNATAKA","KERALA",
+  "MADHYA PRADESH","MAHARASHTRA","MANIPUR","MEGHALAYA","MIZORAM","NAGALAND",
+  "ODISHA","PUNJAB","RAJASTHAN","SIKKIM","TAMIL NADU","TELANGANA","TRIPURA",
+  "UTTAR PRADESH","UTTARAKHAND","WEST BENGAL",
+  "ANDAMAN AND NICOBAR ISLANDS","CHANDIGARH","DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+  "DELHI","JAMMU AND KASHMIR","LADAKH","LAKSHADWEEP","PUDUCHERRY"
+];
+
+function isValidName(name) {
+  return /^[A-Za-z\s]{2,}$/.test(name.trim());
+}
+
+function isValidEmail(value) {
+  const normalized = String(value).trim().toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized);
+}
+
+function isValidPhone(phone) {
+  return /^\d{10}$/.test(String(phone).trim());
+}
+
+function isValidState(state) {
+  const value = state.trim().toUpperCase();
+  return INDIAN_STATES.includes(value);
+}
+
+function isValidZip(zip) {
+  return /^\d{3}\s\d{3}$/.test(zip.trim());
+}
+
+function isValidExpiry(exp) {
+  const m = /^(0[1-9]|1[0-2])\/(\d{2})$/.exec(exp.trim());
+  if (!m) return false;
+  const month = parseInt(m[1], 10);
+  const year2 = parseInt(m[2], 10);
+  const now   = new Date();
+  const currYear2 = now.getFullYear() % 100;
+  const currMonth = now.getMonth() + 1;
+  if (year2 < currYear2) return false;
+  if (year2 === currYear2 && month < currMonth) return false;
+  return true;
+}
+
+const CARD_LENGTHS = {
+  VISA:             [16, 19],
+  MASTERCARD:       [16],
+  "AMERICAN EXPRESS": [15],
+  DISCOVER:         [16],
+  "DINERS CLUB":    [14],
+  JCB:              [16],
+  UNIONPAY:         [16, 17, 18, 19]
+};
+
+function isValidCVV(cvv) {
+  return /^\d{3}$/.test(cvv.trim());
+}
+
+function isValidUPI(upi) {
+  const value = String(upi || '').trim().toLowerCase();
+  const upiRegex = /^[a-z0-9]{3,50}@[a-z0-9]{2,20}$/;
+  return upiRegex.test(value);
+}
+
+function getCardBrand(digitsOnly) {
+  if (!digitsOnly) return "";
+  const d2 = digitsOnly.slice(0, 2);
+  const d3 = digitsOnly.slice(0, 3);
+  const d4 = digitsOnly.slice(0, 4);
+  const first = digitsOnly[0];
+  const num2 = parseInt(d2, 10);
+  const num3 = parseInt(d3, 10);
+  const num4 = parseInt(d4, 10);
+  if (first === "4") return "VISA";
+  if ((num2 >= 51 && num2 <= 55) || (num4 >= 2221 && num4 <= 2720)) return "MASTERCARD";
+  if (d2 === "34" || d2 === "37") return "AMERICAN EXPRESS";
+  if (d4 === "6011" || d2 === "65" || (num3 >= 644 && num3 <= 649)) return "DISCOVER";
+  if ((num3 >= 300 && num3 <= 305) || d2 === "36" || d2 === "38") return "DINERS CLUB";
+  if (num4 >= 3528 && num4 <= 3589) return "JCB";
+  if (d2 === "62") return "UNIONPAY";
+  return "CARD";
+}
+
+function formatZip(value) {
+  const digits = value.replace(/\D/g, "").slice(0, 6);
+  if (digits.length <= 3) return digits;
+  return digits.slice(0, 3) + " " + digits.slice(3);
+}
+
+function formatCardNumber(value) {
+  const digits = value.replace(/\D/g, "").slice(0, 19);
+  const groups = [];
+  for (let i = 0; i < digits.length; i += 4) {
+    groups.push(digits.slice(i, i + 4));
+  }
+  return {
+    formatted: groups.join(" "),
+    digitsOnly: digits
+  };
+}
+
+function formatExpiry(value) {
+  const digits = value.replace(/\D/g, "").slice(0, 4);
+  if (digits.length <= 2) return digits;
+  return digits.slice(0, 2) + "/" + digits.slice(2);
+}
+
+function generateCODCode(len = 8) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let out = "";
+  for (let i = 0; i < len; i++) {
+    out += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return out;
+}
+
+// ===================== DOM HOOKS & VALIDATION =====================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form      = document.getElementById("checkoutForm");
+  if (!form) return;
+
+  const fullName  = document.getElementById("fullName");
+  const email     = document.getElementById("email");
+  const phone     = document.getElementById("phone");
+  const stateEl   = document.getElementById("state");
+  const zipCode   = document.getElementById("zipCode");
+  const addressEl = document.getElementById("address");
+
+  const cardDetails = document.getElementById("cardDetails");
+  const cardNumber  = document.getElementById("cardNumber");
+  const expiry      = document.getElementById("expiry");
+  const cvv         = document.getElementById("cvv");
+
+  let upiInput, codInfo;
+
+  if (email) {
+    email.addEventListener("input", () => {
+      const pos = email.selectionStart;
+      email.value = email.value.toLowerCase();
+      email.setSelectionRange(pos, pos);
+    });
+  }
+
+  if (phone) {
+    phone.addEventListener("input", () => {
+      phone.value = phone.value.replace(/\D/g, "").slice(0, 10);
+    });
+  }
+
+  if (zipCode) {
+    zipCode.addEventListener("input", () => {
+      zipCode.value = formatZip(zipCode.value);
+    });
+  }
+
+  const cardBrandHint = document.createElement("div");
+  cardBrandHint.style.fontSize = "11px";
+  cardBrandHint.style.marginTop = "4px";
+  cardBrandHint.style.color = "#666";
+  cardNumber.parentElement.appendChild(cardBrandHint);
+
+  cardNumber.addEventListener("input", () => {
+    const { formatted, digitsOnly } = formatCardNumber(cardNumber.value);
+    cardNumber.value = formatted;
+
+    const brand   = getCardBrand(digitsOnly);
+    const lengths = CARD_LENGTHS[brand] || null;
+
+    if (brand) {
+      if (lengths) {
+        cardBrandHint.textContent =
+          `Detected: ${brand} (digits: ${lengths.join(", ")})`;
+      } else {
+        cardBrandHint.textContent = `Detected: ${brand}`;
+      }
+    } else {
+      cardBrandHint.textContent = "";
+    }
+  });
+
+  expiry.addEventListener("input", () => {
+    expiry.value = formatExpiry(expiry.value);
+  });
+
+  const paymentRadios = document.querySelectorAll("input[name='payment']");
+
+  function ensureUPIField() {
+    if (!upiInput) {
+      upiInput = document.createElement("input");
+      upiInput.type = "text";
+      upiInput.id = "upiId";
+      upiInput.placeholder = "ENTER UPI ID (e.g. name@bank)";
+      upiInput.className = "upi-input form-group-input";
+
+      const wrap = document.createElement("div");
+      wrap.className = "form-group";
+      wrap.appendChild(upiInput);
+      cardDetails.parentElement.insertBefore(wrap, cardDetails.nextSibling);
+    }
+    upiInput.style.display = "block";
+  }
+
+  function hideUPIField() {
+    if (upiInput) upiInput.style.display = "none";
+  }
+
+  function ensureCODInfo() {
+    if (!codInfo) {
+      codInfo = document.createElement("div");
+      codInfo.className = "cod-info";
+      codInfo.style.fontSize = "11px";
+      codInfo.style.marginTop = "8px";
+      codInfo.style.color = "#555";
+      cardDetails.parentElement.appendChild(codInfo);
+    }
+  }
+
+  paymentRadios.forEach(r => {
+    r.addEventListener("change", () => {
+      if (!r.checked) return;
+      const value = r.value;
+
+      if (value === "card") {
+        cardDetails.style.display = "block";
+        hideUPIField();
+        if (codInfo) codInfo.textContent = "";
+      } else if (value === "upi") {
+        cardDetails.style.display = "none";
+        ensureUPIField();
+        if (codInfo) codInfo.textContent = "";
+      } else if (value === "cod") {
+        cardDetails.style.display = "none";
+        hideUPIField();
+        ensureCODInfo();
+        codInfo.textContent =
+          "A cash‑on‑delivery code will be generated after placing the order.";
+      }
+    });
+  });
+
+  cardDetails.style.display = "block";
+
+  function runAllCheckoutValidations() {
+    const nameVal  = fullName.value;
+    const emailVal = email.value;
+    const phoneVal = phone.value;
+    const stateVal = stateEl.value;
+    const zipVal   = zipCode.value;
+
+    if (!isValidName(nameVal)) {
+      showError("Please enter a valid full name (letters and spaces only).");
+      fullName.focus();
+      return false;
+    }
+    if (!isValidEmail(emailVal)) {
+      showError("Please enter a valid email address.");
+      email.focus();
+      return false;
+    }
+    if (!isValidPhone(phoneVal)) {
+      showError("Please enter a valid 10‑digit phone number.");
+      phone.focus();
+      return false;
+    }
+    if (!isValidState(stateVal)) {
+      showError("Please enter a valid Indian state.");
+      stateEl.focus();
+      return false;
+    }
+    if (!isValidZip(zipVal)) {
+      showError("ZIP code must be 6 digits in the format 123 456.");
+      zipCode.focus();
+      return false;
+    }
+
+    const selectedPaymentEl = document.querySelector("input[name='payment']:checked");
+    if (!selectedPaymentEl) {
+      showError("Please select a payment method.");
+      return false;
+    }
+    const selectedPayment = selectedPaymentEl.value;
+
+    if (selectedPayment === "card") {
+      const digitsOnly = cardNumber.value.replace(/\D/g, "");
+      const brand      = getCardBrand(digitsOnly);
+      const allowed    = CARD_LENGTHS[brand] || [16];
+
+      if (!allowed.includes(digitsOnly.length)) {
+        showError(
+          brand
+            ? `${brand} card must have ${allowed.join(", ")} digits.`
+            : `Card number must have ${allowed.join(", ")} digits.`
+        );
+        cardNumber.focus();
+        return false;
+      }
+
+      if (!isValidExpiry(expiry.value)) {
+        showError("Please enter a valid expiry date (MM/YY, not in the past).");
+        expiry.focus();
+        return false;
+      }
+
+      if (!isValidCVV(cvv.value)) {
+        showError("CVV must be 3 digits.");
+        cvv.focus();
+        return false;
+      }
+    } else if (selectedPayment === "upi") {
+      ensureUPIField();
+      const upiVal = (upiInput && upiInput.value) || "";
+      if (!isValidUPI(upiVal)) {
+        showError("Please enter a valid UPI ID (only lowercase letters and numbers, like name123@bank).");
+        upiInput.focus();
+        return false;
+      }
+    } else if (selectedPayment === "cod") {
+      const code = generateCODCode();
+      ensureCODInfo();
+      codInfo.textContent = "Your cash on delivery code: " + code;
+      showCustomAlert("ORDER PLACED", "Order placed with Cash on Delivery.\nYour COD code is: " + code);
+    }
+
+    return true;
+  }
+
+  function placeOrderAfterValidation() {
+    const cart = getCart();
+    if (!cart || cart.length === 0) {
+      showError("Your shopping bag is empty.");
+      return;
+    }
+
+    const orderData = {
+      fullName: fullName.value,
+      email:    email.value,
+      phone:    phone.value,
+      address:  addressEl ? addressEl.value : "",
+      state:    stateEl.value,
+      zip:      zipCode.value,
+      items:    cart,
+      total:    document.getElementById("checkoutTotal").textContent,
+      date:     new Date().toISOString()
+    };
+
+    localStorage.setItem("checkoutOrder", JSON.stringify(orderData));
+    localStorage.setItem("zaraLastOrder", JSON.stringify({
+      items: cart,
+      date: orderData.date
+    }));
+
+    saveCart([]);
+
+    showCustomAlert("ORDER PLACED", "Your order has been placed successfully.", () => {
+      window.location.href = "thankyou.html";
+    });
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const valid = runAllCheckoutValidations();
+    if (!valid) return;
+    placeOrderAfterValidation();
+  });
+});
+</script>
+
+
+</body>
+</html>

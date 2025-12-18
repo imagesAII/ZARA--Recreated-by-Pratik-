@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Bags</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">ESSENTIALS</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="back-link">
+            <a href="index.html">← BACK</a>
+        </div>
+
+        <div class="products-header">
+            <h1>BAGS</h1>
+            <p class="product-count">10 products</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-id="b1" data-name="Leather Tote Bag" data-price="149.00" data-image="images/bags-1.jpg">
+                <div class="product-image">
+                    <img src="images/bags-1.jpg" alt="Leather Tote Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Leather Tote Bag</h3>
+                    <p class="price">$149.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b2" data-name="Crossbody Bag" data-price="79.90" data-image="images/bags-2.jpg">
+                <div class="product-image">
+                    <img src="images/bags-2.jpg" alt="Crossbody Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Crossbody Bag</h3>
+                    <p class="price">$79.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b3" data-name="Backpack" data-price="99.90" data-image="images/bags-3.jpg">
+                <div class="product-image">
+                    <img src="images/bags-3.jpg" alt="Backpack">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Backpack</h3>
+                    <p class="price">$99.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b4" data-name="Clutch" data-price="59.90" data-image="images/bags-4.jpg">
+                <div class="product-image">
+                    <img src="images/bags-4.jpg" alt="Clutch">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Clutch</h3>
+                    <p class="price">$59.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b5" data-name="Shoulder Bag" data-price="119.00" data-image="images/bags-5.jpg">
+                <div class="product-image">
+                    <img src="images/bags-5.jpg" alt="Shoulder Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Shoulder Bag</h3>
+                    <p class="price">$119.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b6" data-name="Bucket Bag" data-price="89.90" data-image="images/bags-6.jpg">
+                <div class="product-image">
+                    <img src="images/bags-6.jpg" alt="Bucket Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Bucket Bag</h3>
+                    <p class="price">$89.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b7" data-name="Satchel" data-price="139.00" data-image="images/bags-7.jpg">
+                <div class="product-image">
+                    <img src="images/bags-7.jpg" alt="Satchel">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Satchel</h3>
+                    <p class="price">$139.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b8" data-name="Belt Bag" data-price="49.90" data-image="images/bags-8.jpg">
+                <div class="product-image">
+                    <img src="images/bags-8.jpg" alt="Belt Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Belt Bag</h3>
+                    <p class="price">$49.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b9" data-name="Evening Bag" data-price="69.90" data-image="images/bags-9.jpg">
+                <div class="product-image">
+                    <img src="images/bags-9.jpg" alt="Evening Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Evening Bag</h3>
+                    <p class="price">$69.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="b10" data-name="Messenger Bag" data-price="109.00" data-image="images/bags-10.jpg">
+                <div class="product-image">
+                    <img src="images/bags-10.jpg" alt="Messenger Bag">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Messenger Bag</h3>
+                    <p class="price">$109.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

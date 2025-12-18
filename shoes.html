@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Shoes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">ESSENTIALS</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="back-link">
+            <a href="index.html">← BACK</a>
+        </div>
+
+        <div class="products-header">
+            <h1>SHOES</h1>
+            <p class="product-count">10 products</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-id="s1" data-name="Leather Sneakers" data-price="89.90" data-image="images/shoes-1.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-1.jpg" alt="Leather Sneakers">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Leather Sneakers</h3>
+                    <p class="price">$89.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s2" data-name="Ankle Boots" data-price="119.00" data-image="images/shoes-2.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-2.jpg" alt="Ankle Boots">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Ankle Boots</h3>
+                    <p class="price">$119.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s3" data-name="Platform Heels" data-price="99.90" data-image="images/shoes-3.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-3.jpg" alt="Platform Heels">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Platform Heels</h3>
+                    <p class="price">$99.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s4" data-name="Loafers" data-price="79.90" data-image="images/shoes-4.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-4.jpg" alt="Loafers">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Loafers</h3>
+                    <p class="price">$79.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s5" data-name="Ballet Flats" data-price="59.90" data-image="images/shoes-5.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-5.jpg" alt="Ballet Flats">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Ballet Flats</h3>
+                    <p class="price">$59.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s6" data-name="Chelsea Boots" data-price="129.00" data-image="images/shoes-6.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-6.jpg" alt="Chelsea Boots">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Chelsea Boots</h3>
+                    <p class="price">$129.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s7" data-name="Sandals" data-price="49.90" data-image="images/shoes-7.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-7.jpg" alt="Sandals">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Sandals</h3>
+                    <p class="price">$49.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s8" data-name="Running Shoes" data-price="95.90" data-image="images/shoes-8.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-8.jpg" alt="Running Shoes">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Running Shoes</h3>
+                    <p class="price">$95.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s9" data-name="High Heels" data-price="109.00" data-image="images/shoes-9.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-9.jpg" alt="High Heels">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>High Heels</h3>
+                    <p class="price">$109.00</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="s10" data-name="Slip-On Sneakers" data-price="69.90" data-image="images/shoes-10.jpg">
+                <div class="product-image">
+                    <img src="images/shoes-10.jpg" alt="Slip-On Sneakers">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Slip-On Sneakers</h3>
+                    <p class="price">$69.90</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

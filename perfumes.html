@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Perfumes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="search.html" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="help.html" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG [<span id="cartCount">0</span>]</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">ESSENTIALS</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="back-link">
+            <a href="index.html">← BACK</a>
+        </div>
+
+        <div class="products-header">
+            <h1>PERFUMES</h1>
+            <p class="product-count">10 products</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-id="p1" data-name="Rose Noir Eau De Parfum" data-price="59.90" data-image="images/perfume-1.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-1.jpg" alt="Rose Noir Eau De Parfum">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Rose Noir Eau De Parfum</h3>
+                    <p class="price">$59.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p2" data-name="Wonder Rose" data-price="49.90" data-image="images/perfume-2.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-2.jpg" alt="Wonder Rose">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Wonder Rose</h3>
+                    <p class="price">$49.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p3" data-name="Vetiver Pamplemousse" data-price="54.90" data-image="images/perfume-3.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-3.jpg" alt="Vetiver Pamplemousse">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Vetiver Pamplemousse</h3>
+                    <p class="price">$54.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p4" data-name="Red Vanilla" data-price="44.90" data-image="images/perfume-4.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-4.jpg" alt="Red Vanilla">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Red Vanilla</h3>
+                    <p class="price">$44.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p5" data-name="Orchid Intense" data-price="64.90" data-image="images/perfume-5.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-5.jpg" alt="Orchid Intense">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Orchid Intense</h3>
+                    <p class="price">$64.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p6" data-name="Tobacco Collection Intense Dark" data-price="69.90" data-image="images/perfume-6.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-6.jpg" alt="Tobacco Collection Intense Dark">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Tobacco Collection Intense Dark</h3>
+                    <p class="price">$69.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p7" data-name="Ebony Wood" data-price="54.90" data-image="images/perfume-7.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-7.jpg" alt="Ebony Wood">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Ebony Wood</h3>
+                    <p class="price">$54.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p8" data-name="Gardenia" data-price="47.90" data-image="images/perfume-8.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-8.jpg" alt="Gardenia">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Gardenia</h3>
+                    <p class="price">$47.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p9" data-name="Black Amber" data-price="59.90" data-image="images/perfume-9.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-9.jpg" alt="Black Amber">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>Black Amber</h3>
+                    <p class="price">$59.90</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="p10" data-name="White Jasmine" data-price="52.90" data-image="images/perfume-10.jpg">
+                <div class="product-image">
+                    <img src="images/perfume-10.jpg" alt="White Jasmine">
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+                <div class="product-info">
+                    <h3>White Jasmine</h3>
+                    <p class="price">$52.90</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="help.html">FAQS</a></li>
+                    
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="payments.html">PAYMENT METHODS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="pricingpolicy.html">PRICING POLICY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="cookies.html" id="cookiesLink">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <!-- Make sure to include Font Awesome CDN in your <head> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer-bottom">
+            <p>© DEC 2025 ZARA</p>
+            <p class="country">USA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

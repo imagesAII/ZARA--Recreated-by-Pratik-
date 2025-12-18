@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Order Confirmed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="logo">
+            <h1><a href="index.html">ZARA</a></h1>
+        </div>
+
+        <nav class="header-right">
+            <a href="#" class="nav-link">SEARCH</a>
+            <a href="login.html" class="nav-link" id="loginLink">LOG IN</a>
+            <a href="#" class="nav-link">HELP</a>
+            <a href="cart.html" class="nav-link">SHOPPING BAG (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-header">
+            <h2>MENU</h2>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+
+        <nav class="menu-nav">
+            <a href="woman.html" class="menu-link">WOMAN</a>
+            <a href="man.html" class="menu-link">MAN</a>
+            <a href="kids.html" class="menu-link">KIDS</a>
+            <a href="beauty.html" class="menu-link">BEAUTY</a>
+            <a href="shoes.html" class="menu-link">SHOES</a>
+            <a href="bags.html" class="menu-link">BAGS</a>
+            <a href="perfumes.html" class="menu-link">PERFUMES</a>
+        </nav>
+
+        <div class="menu-footer">
+            <a href="index.html#newsletter" class="menu-footer-link">NEWSLETTER</a>
+            <a href="#" class="menu-footer-link">STORE LOCATOR</a>
+            <a href="#" class="menu-footer-link">COMPANY</a>
+        </div>
+    </div>
+
+    <!-- Thank You Section -->
+    <section class="thankyou-section">
+        <div class="thankyou-card">
+            <div class="thankyou-container">
+                <div class="success-icon">✓</div>
+                <h1 class="thankyou-title">THANK YOU FOR YOUR ORDER!</h1>
+                <p class="order-number">Order Number: <span id="orderNumber"></span></p>
+
+                <div class="thankyou-message">
+                    <p>Your order has been successfully placed and is being processed.</p>
+                    <p>We've sent a confirmation email to <strong id="customerEmail"></strong></p>
+                    <p>You will receive a shipping notification once your order has been dispatched.</p>
+                </div>
+
+                <!-- Extra customer + address details -->
+                <div class="customer-details">
+                    <p><strong>Name:</strong> <span id="customerName"></span></p>
+                    <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+                    <p><strong>Shipping address:</strong> <span id="customerAddress"></span></p>
+                </div>
+
+                <div class="order-details" id="orderDetails">
+                    <h2>ORDER DETAILS</h2>
+                    <div id="orderedItems"></div>
+                    <div class="order-total" id="orderTotal"></div>
+                </div>
+
+                <div class="thankyou-actions">
+                    <a href="index.html" class="btn-continue-shopping">CONTINUE SHOPPING</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="#">FAQS</a></li>
+                    <li><a href="#">MY PURCHASES</a></li>
+                    <li><a href="#">GIFT CARD</a></li>
+                    <li><a href="#">STORE LOCATOR</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">JOIN LIFE</a></li>
+                    <li><a href="#">OFFICES</a></li>
+                    <li><a href="#">WORK WITH US</a></li>
+                    <li><a href="#">PRESS</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>POLICIES</h4>
+                <ul>
+                    <li><a href="#">PRIVACY</a></li>
+                    <li><a href="#">TERMS OF USE</a></li>
+                    <li><a href="#">COOKIES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<div class="social-icons">
+  <a href="https://www.instagram.com/zara/" target="_blank" title="Instagram" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/Zara" target="_blank" title="Facebook" style="color: black; text-decoration: none; font-size: 24px; margin-right: 15px;">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.youtube.com/user/ZARA" target="_blank" title="YouTube" style="color: black; text-decoration: none; font-size: 24px;">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 ZARA</p>
+            <p class="country">INDIA</p>
+            <p> RECREATED BY PRATIK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Thank-you page logic -->
+    <script>
+      // Generate random alphanumeric order ID
+      function generateOrderId(length = 10) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let out = '';
+        for (let i = 0; i < length; i++) {
+          out += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return out;
+      }
+
+      function loadOrderOnThankYou() {
+        const dataJSON = localStorage.getItem('checkoutOrder');
+        if (!dataJSON) return;
+
+        const data = JSON.parse(dataJSON);
+
+        // Order number
+        const orderNumberEl = document.getElementById('orderNumber');
+        if (orderNumberEl) {
+          orderNumberEl.textContent = generateOrderId(10);
+        }
+
+        // Email
+        const emailEl = document.getElementById('customerEmail');
+        if (emailEl && data.email) emailEl.textContent = data.email;
+
+        // Name + phone
+        if (document.getElementById('customerName') && data.fullName) {
+          document.getElementById('customerName').textContent = data.fullName;
+        }
+        if (document.getElementById('customerPhone') && data.phone) {
+          document.getElementById('customerPhone').textContent = data.phone;
+        }
+
+        // Address (address + city + state + zip + country if present)
+        if (document.getElementById('customerAddress')) {
+          const parts = [];
+          if (data.address) parts.push(data.address);
+          if (data.city)    parts.push(data.city);
+          if (data.state)   parts.push(data.state);
+          if (data.zip)     parts.push(data.zip);
+          if (data.country) parts.push(data.country);
+          document.getElementById('customerAddress').textContent = parts.join(', ');
+        }
+
+        // Items
+        const itemsContainer = document.getElementById('orderedItems');
+        if (itemsContainer && Array.isArray(data.items)) {
+          itemsContainer.innerHTML = '';
+          data.items.forEach(item => {
+            const qty = item.quantity || item.qty || 1;
+            const priceEach = Number(item.price || 0);
+            const div = document.createElement('div');
+            div.className = 'order-item';
+            div.innerHTML = `
+              <p><strong>${item.name}</strong> x ${qty}</p>
+              <p>$ ${(priceEach * qty).toFixed(2)}</p>
+            `;
+            itemsContainer.appendChild(div);
+          });
+        }
+
+        // Total
+        const totalEl = document.getElementById('orderTotal');
+        if (totalEl) {
+          const total = data.total || '';
+          totalEl.innerHTML = total
+            ? '<p><strong>Order Total: </strong>' + total + '</p>'
+            : '';
+        }
+
+        // Clear so it is not reused on refresh (optional)
+        localStorage.removeItem('checkoutOrder');
+      }
+
+      document.addEventListener('DOMContentLoaded', loadOrderOnThankYou);
+    </script>
+</body>
+</html>
